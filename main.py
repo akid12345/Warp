@@ -22,26 +22,26 @@ ax = fig.add_subplot(111, projection='3d')
 def update(t):
     ax.clear()
 
-    # Move bubble smoothly across the grid
     center_x = -15 + t * 0.3
 
-    # Calculate moving warp field
     Z_bubble = alcubierre_shape(X, Y, center_x)
 
-    # Draw static flat grid
-    ax.plot_wireframe(X, Y, np.zeros_like(X), rstride=2, cstride=2, color='gray', linewidth=0.3)
-
-    # Overlay moving curvature on top
-    ax.plot_surface(X, Y, Z_bubble, cmap='inferno', alpha=0.8, edgecolor='none')
+    # Overlay warp distortion
+    ax.plot_surface(X, Y, Z_bubble, cmap='inferno', alpha=0.85, edgecolor='none')
 
     # View settings
     ax.view_init(elev=30, azim=45)
-    ax.set_xticks([])
-    ax.set_yticks([])
-    ax.set_zticks([])
     ax.set_box_aspect([1, 1, 0.5])
+    ax.set_title("Warp Bubble Traversing Spacetime Grid", pad=20)
 
-# Animate the full traversal
+    # Enable axis labels and numbers
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.set_zlabel("Warp Curvature")
+
+    ax.set_xticks(np.arange(-10, 11, 5))
+    ax.set_yticks(np.arange(-10, 11, 5))
+    ax.set_zticks(np.arange(-4, 5, 2))
+
 ani = animation.FuncAnimation(fig, update, frames=100, interval=50)
 plt.show()
-
