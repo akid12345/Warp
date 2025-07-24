@@ -1,4 +1,4 @@
-# Warp
+# Warp Drive
 
 In 1994, physicist Miguel Alcubierre proposed a solution to Einstein's equations: a "warp drive" enabling faster-than-light (FTL) travel not by increasing the speed of a spacecraft, but by warping spacetime. His mathematical model describes a bubble of flat space surrounded by regions of extreme curvature—space expands behind the bubble and contracts ahead of it, propelling it forward. This is the Alcubierre metric:
 
